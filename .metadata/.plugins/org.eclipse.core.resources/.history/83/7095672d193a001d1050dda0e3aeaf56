@@ -1,0 +1,29 @@
+package com.global.view.user;
+
+
+
+import org.springframework.stereotype.Controller;
+
+import com.global.biz.user.UserVO;
+import com.global.biz.user.impl.UserDAO;
+
+@Controller
+public class LoginController {
+
+	@Override
+	public String login(UserVO vo,UserDAO dao) {
+		
+		
+    		System.out.println("로그인 처리");
+    		    		
+    		
+    		if(dao.getUser(vo) != null){
+    	        return("getBoardList.do");
+    		}else{
+    			return("login.jsp");
+    		}
+    		
+    		
+    
+
+	}}

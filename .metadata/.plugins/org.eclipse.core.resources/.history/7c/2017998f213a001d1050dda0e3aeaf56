@@ -1,0 +1,43 @@
+package com.global.view.user;
+
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.global.biz.user.UserVO;
+import com.global.biz.user.impl.UserDAO;
+
+@Controller
+public class LoginController {
+
+	
+	public String loginView(UserVO vo) {
+		System.out.println("로그인 화면으로 이동.......");
+		vo.setId("test");
+		vo.setPassword("test123");
+		return "login.jsp";
+		
+	}
+	
+	
+	
+	
+	
+	@RequestMapping("/login.do")
+	public String login(UserVO vo,UserDAO dao) {
+		
+		
+    		System.out.println("로그인 처리");
+    		    		
+    		
+    		if(dao.getUser(vo) != null){
+    	        return("getBoardList.do");
+    		}else{
+    			return("login.jsp");
+    		}
+    		
+    		
+    
+
+	}}

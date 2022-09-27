@@ -1,0 +1,5 @@
+package com.global.view.board;
+
+public class BoardController {
+
+}

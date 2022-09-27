@@ -1,0 +1,21 @@
+package com.global.biz.common;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.servlet.ModelAndView;
+
+@ControllerAdvice("com.global.view")
+public class CommonExceptionHandler {
+
+	public ModelAndView handlerArithmetricException(Exception e) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("exception",e);
+		mav.setViewName("/common/arithmeticError.jsp");
+		return mav;
+	}
+	
+	
+	
+	
+	
+	
+}

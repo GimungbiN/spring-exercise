@@ -1,0 +1,18 @@
+package com.global.biz.common;
+
+import org.springframework.web.servlet.ModelAndView;
+
+public class CommonExceptionHandler {
+
+	public ModelAndView handlerArithmetricException(Exception e) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("exception",e);
+		mav.setView("/common/arithmeticError.jsp");
+	}
+	
+	
+	
+	
+	
+	
+}

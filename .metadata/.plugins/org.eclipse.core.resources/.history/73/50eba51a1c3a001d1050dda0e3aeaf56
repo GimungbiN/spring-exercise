@@ -1,0 +1,37 @@
+package com.global.view.board;
+
+
+import org.springframework.stereotype.Controller;
+
+import com.global.biz.board.BoardVO;
+import com.global.biz.board.impl.BoardDAO;
+
+
+@Controller
+public class DeleteBoardController{
+
+	@Override
+	public String deleteBoard(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("글 삭제 처리");
+		//사용자 입력 정보 추출
+		String seq = request.getParameter("seq");
+
+		//DB 연동
+		BoardVO vo = new BoardVO();
+		vo.setSeq(Integer.parseInt(seq));
+
+
+		BoardDAO dao = new BoardDAO();
+		dao.deleteBoard(vo);
+
+		//화면 응답
+		
+         ModelAndView mav = new ModelAndView();
+		
+		
+		mav.setViewName("redirect:getBoardList.do");
+		
+		return mav;
+	}
+
+}

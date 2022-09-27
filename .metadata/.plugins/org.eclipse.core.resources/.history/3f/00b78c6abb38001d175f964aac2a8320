@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>      
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+ <div class="container-header">
+        <input type="hidden" value="<c:out value='${sessionConfigVO.user_id }'/>" id="session_id"/>
+            <c:if test="${sessionConfigVO ne null}">
+                <ul style="height:30px;float:right;margin-bottom:20px;" class="fn-font">
+                    <li><a style="color:blue;" class="" >${sessionConfigVO.user_name}' s come in</a></li>
+                    <c:if test="${sessionConfigVO.naver_login eq true }">
+                        <li>
+                            <img src="" style="width:30px;">
+                            <a style="color:green;">NAVER 계정으로 접속중 </a>
+                            <span id="count" class="badge bg-theme"></span>
+                        </li>
+                    </c:if>
+                </ul>
+            </c:if>
+            <c:if test='${sessionConfigVO eq null}'>
+                <ul style="height:30px;float:right;margin-bottom:20px;" class="fn-font">
+                    <li><a style="color:blue;" class="forget_login" onclick="fn_forgetID()">Forget ID/PASSWORD</a></li>
+                </ul>    
+            </c:if>
+            <span id="recMs" name="recMs" style="float:right;cursor:pointer;margin-right:10px;color:pink;"><img src="../resources/images/msgicon.png" style="width:15px;"></span>
+        </div>
+ 
+</body>
+</html>
